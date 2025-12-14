@@ -1,5 +1,6 @@
 package br.com.alura.screenmatch.principal;
 
+import br.com.alura.screenmatch.model.DadosEpisodio;
 import br.com.alura.screenmatch.model.DadosSerie;
 import br.com.alura.screenmatch.model.DadosTemporada;
 import br.com.alura.screenmatch.service.ConsumoApi;
@@ -40,12 +41,15 @@ public class Principal {
 		System.out.println("===========TEMPORADAS===========");
 		temporadas.forEach(System.out::println);
 
-//		System.out.println("===========EPISODIOS===========");
-//		var jsonEpisodio = consumoApi.obterDados("https://www.omdbapi.com/?t=gilmore+girls&Season=1&episode=2&apikey=68d3e477");
-//		DadosEpisodio  dadosEpisodio = conversor.obterDados(jsonEpisodio, DadosEpisodio.class);
-//		System.out.println(dadosEpisodio);
+//        System.out.println("===========EPISODIOS===========");
+//        for (int i = 0; i < dadosSerie.totalTemporadas(); i++) {
+//            List<DadosEpisodio> dadosEpisodios = temporadas.get(i).episodios();
+//            for (int j = 0; j < dadosEpisodios.size(); j++) {
+//                System.out.println(dadosEpisodios.get(j).titulo());
+//            }
+//        }
 
-
+        temporadas.forEach(t -> t.episodios().forEach(e -> System.out.println(e.titulo())));
 
     }
 }
